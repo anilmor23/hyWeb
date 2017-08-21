@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Login @ Hypothizer </title>
+</head>
+<body>
+<form  method="post">
+    {% csrf_token %}
+    <h2> {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}</h2>
+    {% include 'users/form-template.html' %}
+    {% if error_message %}
+        <a href="{% url 'music:ChangePassword' %}"><input type="button" value="Forgot Password"/></a>
+    {% endif %}
+
+    <button type="submit">Login</button></form>
+</body>
+</html>
